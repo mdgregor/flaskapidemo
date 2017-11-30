@@ -3,13 +3,13 @@ from flask import Flask, jsonify
 app = Flask(__name__)
 
 
-@app.route("/math/<int:num_one>/<int:num_two>/<string:method>")
-def do_random_math(num_one, num_two, method):
+@app.route("/math/string:method>/<int:num_one>/<int:num_two>")
+def do_random_math(method, num_one, num_two):
     solution = {
-        "+": add(num_one, num_two),
-        "-": subtract(num_one, num_two),
-        "*": multiply(num_one, num_two),
-        "/": divide(num_one, num_two)
+        "add": add(num_one, num_two),
+        "subtract": subtract(num_one, num_two),
+        "multiply": multiply(num_one, num_two),
+        "divide": divide(num_one, num_two)
     }.get(method)
 
     return jsonify({"num_one": num_one, "num_two": num_two, "result": solution})
