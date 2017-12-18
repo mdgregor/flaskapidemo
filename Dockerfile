@@ -17,6 +17,9 @@ ADD . /app
 # Install any needed packages specified in requirements.txt
 RUN pip3 install --trusted-host pypi.python.org -r requirements.txt
 
+# Run Tests
+RUN nosetests -sv tests/
+
 # Make port 80 available to the world outside this container
 EXPOSE 5000    
 
